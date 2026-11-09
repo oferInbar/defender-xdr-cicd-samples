@@ -7,9 +7,14 @@ The samples demonstrate deployment, not production security coverage. The detect
 ## Sample content
 
 - [Detections/PowerShellProcess.bicep](Detections/PowerShellProcess.bicep) defines an hourly custom detection for PowerShell process starts. Its query covers the previous hour.
+- [Detections/AdFindUsage.bicep](Detections/AdFindUsage.bicep) defines an hourly custom detection for Active Directory reconnaissance using AdFind (`DeviceProcessEvents`).
+- [Detections/SuspiciousPowerShellCommandlet.bicep](Detections/SuspiciousPowerShellCommandlet.bicep) defines an hourly custom detection for suspicious Active Directory PowerShell commandlets (`DeviceEvents`).
+- [Detections/PowerShellEncodedCommand.bicep](Detections/PowerShellEncodedCommand.bicep) defines an hourly custom detection for Base64-encoded PowerShell execution and download cradles (`DeviceProcessEvents`).
+- [Detections/CertutilDownloadAbuse.bicep](Detections/CertutilDownloadAbuse.bicep) defines an hourly custom detection for `certutil.exe` remote file downloads (`DeviceProcessEvents`).
+- [Detections/WmiSuspiciousChildProcess.bicep](Detections/WmiSuspiciousChildProcess.bicep) defines an hourly custom detection for `WmiPrvSE.exe` spawning suspicious child processes (`DeviceProcessEvents`).
 - [Workbooks/RecentProcesses.bicep](Workbooks/RecentProcesses.bicep) defines a workbook showing the 20 most recent process events. Its query covers the previous day.
 
-Both samples use Defender for Endpoint's `DeviceProcessEvents` table through Advanced Hunting. Keep `bicepconfig.json` at the repository root. It selects the Microsoft Security Bicep extension used by both templates.
+All samples use Defender for Endpoint's `DeviceProcessEvents` and `DeviceEvents` tables through Advanced Hunting. Keep `bicepconfig.json` at the repository root. It selects the Microsoft Security Bicep extension used by the templates.
 
 ## Try the samples
 
